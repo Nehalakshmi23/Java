@@ -35,6 +35,34 @@ class Linked{
         }
         System.out.print("null");
     }
+    void remove(){
+        if(head == null || head.next == null){
+            head = null;
+        } 
+        else{
+            Node temp = head;
+            while(temp.next.next != null){
+                temp = temp.next;
+            }
+            temp.next = null;
+        }
+    }
+    void removeany(int val){
+        Node temp = head;
+        if(head.data == val){
+            head = null;
+            return ;
+        }
+        while(temp.next!= null){
+            if(temp.next.data == val){
+                temp.next = temp.next.next;
+                return;
+            }
+            temp = temp.next;
+        }
+
+
+    }
 }
 
 
@@ -44,6 +72,13 @@ public class Linkedlist {
         ll.insert(10);
         ll.insert(20);
         ll.insert(30);
+        ll.insert(40);
+        ll.display();
+        ll.remove();
+        System.out.println();
+        ll.display();
+        ll.removeany(20);
+        System.out.println();
         ll.display();
     }
 }
